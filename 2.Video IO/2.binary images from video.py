@@ -4,7 +4,7 @@ import skvideo.io
 import numpy as np
 import matplotlib.pyplot as plt
 
-reader = skvideo.io.FFmpegReader('../Coffee.mp4')
+reader = skvideo.io.FFmpegReader('../images-videos/Coffee.mp4')
 # writer = skvideo.io.FFmpegWriter('../Coffee.mp4')
 
 # for frame in reader:
@@ -29,7 +29,7 @@ plt.figure(figsize=(10, 10))
 frame_list = np.random.choice(num_frames, 4)
 
 def show_one_frame(frame):
-    reader = skvideo.io.FFmpegReader('../Coffee.mp4')
+    reader = skvideo.io.FFmpegReader('../images-videos/Coffee.mp4')
     count = 0
     for f in reader:
         if count == frame:
@@ -43,7 +43,7 @@ def show_one_frame(frame):
 
 
 def get_one_frame(num_frame):
-    reader = skvideo.io.FFmpegReader('../Coffee.mp4')
+    reader = skvideo.io.FFmpegReader('../images-videos/Coffee.mp4')
     c = 0
     for f in reader:
         if c == num_frame:
@@ -52,13 +52,13 @@ def get_one_frame(num_frame):
             c += 1
 
 def convert2binary_one_frame(num_frame):
-    writer = skvideo.io.FFmpegWriter('../Coffee.mp4')
+    writer = skvideo.io.FFmpegWriter('../images-videos/Coffee.mp4')
     frame = get_one_frame(num_frame)
     gray_frame = rgb2gray(frame)
     thresh = threshold_otsu(gray_frame)
     binary_img = np.zeros((frame.shape[0], frame.shape[1], 3), dtype=np.uint8)
-    for i in range(frame.shape[0]):
-        for j in range(frame.shape[1]):
+    for i in range(0, 3):
+        for j in range(0, 2):
             binary_img[..., 0] = 255 * (frame[i][j][0] > thresh).astype(np.uint8)
             binary_img[..., 1] = 255 * (frame[i][j][1] > thresh).astype(np.uint8)
             binary_img[..., 2] = 255 * (frame[i][j][2] > thresh).astype(np.uint8)
