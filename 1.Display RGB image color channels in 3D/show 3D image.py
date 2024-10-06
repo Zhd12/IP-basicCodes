@@ -1,10 +1,7 @@
-import skimage
 from skimage.io import imread
 import numpy as np
 import matplotlib.pylab as plt
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-# from mpl_toolkits.mplot3d import Axes3D  # Import for 3D plotting
-
 
 def plot_3d(X, Y, Z, cmap='reds', title='3D Image'):
 
@@ -26,9 +23,9 @@ def plot_3d(X, Y, Z, cmap='reds', title='3D Image'):
     ax.plot_surface(X, Y, Z, cmap=cmap, linewidth=0, antialiased=False, rstride=2, cstride=2, alpha=.5)
 
     # Set the tick locations manually with a step of 50
-    ax.set_xticks(np.arange(0, X.max() + 1, 50))  # Set x-axis ticks to 0, 50, 100, ...
-    ax.set_yticks(np.arange(0, Y.max() + 1, 50))  # Set y-axis ticks similarly
-    # ax.set_zticks(np.arange(0, Z.max() + 1, 50))  # Set z-axis ticks similarly
+    ax.set_xticks(np.arange(0, X.max(), 50))  # Set x-axis ticks to 0, 50, 100, ...
+    ax.set_yticks(np.arange(0, Y.max(), 50))  # Set y-axis ticks similarly
+    ax.set_zticks(np.arange(0, Z.max(), 50))  # Set z-axis ticks similarly
 
     ax.xaxis.set_major_locator(LinearLocator(10))
     ax.xaxis.set_major_formatter(FormatStrFormatter('%.02f'))
@@ -36,10 +33,7 @@ def plot_3d(X, Y, Z, cmap='reds', title='3D Image'):
     ax.set_title(title, size=20)
     plt.show()
 
-# skimage.io.imread('../lenna-resized.jpg', as_gray=False, plugin=None, flatten=None)
-
-# img = cv2.imread('../lenna-resized.jpg')
-img = imread('../lenna-resized.jpg')
+img = imread('../images-videos/lenna-resized.jpg')
 
 Y = np.arange(img.shape[0])
 X = np.arange(img.shape[1])
