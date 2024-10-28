@@ -1,7 +1,5 @@
-import cv2
 from skimage.io import imread
 from skimage.color import rgb2hsv, hsv2rgb
-import numpy as np
 import matplotlib.pyplot as plt
 
 img = imread('../images-videos/lenna.jpg')
