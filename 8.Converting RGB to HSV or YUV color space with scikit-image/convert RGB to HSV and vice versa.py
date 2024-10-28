@@ -39,7 +39,7 @@ plt.title('original image with s = s/3', size=19)
 plt.axis('off')
 
 img_hsv = img_hsv_copy
-img_hsv[:, :, 1] /= 5
+img_hsv[:, :, 2] /= 5
 plt.subplot(236)
 plt.imshow(hsv2rgb(img_hsv))
 plt.title('original image with v = s/5', size=19)
