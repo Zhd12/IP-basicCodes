@@ -13,3 +13,10 @@ def show_images(images: list, img_title: list, w_fig, h_fig, nrows=1, ncols=1):
         plt.title(img_title[0], size=20)
         plt.axis('off')
     plt.show()
+
+def show_single_img(img, img_title, w_fig, h_fig):
+    plt.figure(figsize=(w_fig, h_fig))
+    plt.imshow(img, cmap='gray')
+    plt.title(img_title, size=20)
+    plt.axis('off')
+    plt.show()
